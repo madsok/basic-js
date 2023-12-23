@@ -39,7 +39,11 @@ function transform(arr) {
     }
   }
 
-  return array.filter(el => typeof el !== 'string');
+  return array.filter(el => {
+    if (el !== '--discard-next' && el !== '--discard-prev' && el !== '--double-next' && el !== '--double-prev') {
+      return el;
+    }
+  });
 }
 
 module.exports = {
